@@ -70,16 +70,35 @@ export default function TesteDepressao() {
         </>
       ) : (
         <>
-          <h2 className="text-xl font-semibold mb-4">結果: {resultado}</h2>
-          {resultado === "緑" && <p>あなたはこの問題に非常によく対処できており、感情的にも安定しています。他の人を支援することも可能です。</p>}
-          {resultado === "黄" && <p>取り組むべき感情的問題の兆候がありますが、決意と支援があれば克服可能です。</p>}
-          {resultado === "赤" && <p>この問題に関するあなたの感情的な問題は専門家の助けが必須です。早急に医師や心理士の支援を受けてください。</p>}
+          
+          <h2 className="text-xl font-semibold mb-4 text-center">結果: {resultado}</h2>
+          <img
+            src={
+              resultado === "緑"
+                ? "/images/semaforo-verde.png"
+                : resultado === "黄"
+                ? "/images/semaforo-amarelo.png"
+                : "/images/semaforo-vermelho.png"
+            }
+            alt={`信号表示: ${resultado}`}
+            className="w-40 h-auto mx-auto mb-4"
+          />
+          {resultado === "緑" && (
+            <p className="text-center">あなたはこの問題に非常によく対処できており、感情的にも安定しています。他の人を支援することも可能です。</p>
+          )}
+          {resultado === "黄" && (
+            <p className="text-center">取り組むべき感情的問題の兆候がありますが、決意と支援があれば克服可能です。</p>
+          )}
+          {resultado === "赤" && (
+            <p className="text-center">この問題に関するあなたの感情的な問題は専門家の助けが必須です。早急に医師や心理士の支援を受けてください。</p>
+          )}
           <button
-            className="mt-4 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700"
+            className="mt-6 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700 block mx-auto"
             onClick={reiniciarTeste}
           >
             テストをやり直す
           </button>
+    
         </>
       )}
     </div>
